@@ -3,11 +3,11 @@
  */
 "use strict"
 
-function  MazeSpace() {
-    this.north = false;
-    this.east = false;
-    this.south = false;
-    this.west = false;
+function  MazeSpace(disrections) {
+    var i;
+    for(i=0; i<disrections.length; i++){
+        this[disrections[i]] = false;
+    }
 }
 
 MazeSpace.prototype.setWall = function (direction) {
