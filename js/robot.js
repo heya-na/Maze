@@ -15,3 +15,31 @@ Robot.prototype.setMaze = function (maze) {
     this.y = maze.startY;
     this.orientation = maze.startOrientation;
 }
+
+Robot.prototype.turnRight = function(){
+    if(!this.maze || !this.maze.isValidDirection(this.orientation)){
+        return false;
+    }
+    var right = {
+        north : "east",
+        east : "south",
+        south : "west",
+        west: "north"
+    }
+    this.orientation = rights[this.orientation];
+    return true;
+}
+
+Robot.prototype.turnLeft = function(){
+    if(!this.maze || !this.maze.isValidDirection(this.orientation)){
+        return false;
+    }
+    var left = {
+        north : "west",
+        east : "north",
+        south : "east",
+        west: "south"
+    }
+    this.orientation = left[this.orientation];
+    return true;
+}
